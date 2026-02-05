@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales Prediction App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Store Sales Prediction</h2>
+<form method="POST">
 
+    <label>Store Number</label>
+    <select name="store_nbr" required>
+        <option value="">Select</option>
+        {% for s in range(1, 55) %}
+            <option value="{{ s }}">{{ s }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Promotion</label>
+    <select name="onpromotion" required>
+        <option value="">Select</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+    </select>
+
+    <label>Year</label>
+    <select name="year" required>
+        <option value="">Select</option>
+        {% for y in range(2013, 2018) %}
+            <option value="{{ y }}">{{ y }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Month</label>
+    <select name="month" required>
+        <option value="">Select</option>
+        {% for m in range(1, 13) %}
+            <option value="{{ m }}">{{ m }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Day</label>
+    <select name="day" required>
+        <option value="">Select</option>
+        {% for d in range(1, 32) %}
+            <option value="{{ d }}">{{ d }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Holiday</label>
+    <select name="is_holiday" required>
+        <option value="">Select</option>
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+    </select>
+
+    <button type="submit">Predict Sales</button>
+
+</form>
+
+        {% if prediction %}
+            <div class="result">
+                Predicted Sales: {{ prediction | round(2) }}
+            </div>
+        {% endif %}
+        {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
