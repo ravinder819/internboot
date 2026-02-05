@@ -21,5 +21,5 @@ Technologies Used:
 Python, Pandas, NumPy, Scikit-learn, Flask, HTML, CSS, GitHub
 
 Author:
-Harmanpreet Kaur
+Ravinder Singh
 Intern at Internboot
